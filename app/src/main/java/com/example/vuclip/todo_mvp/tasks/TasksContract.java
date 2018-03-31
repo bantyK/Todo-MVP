@@ -16,7 +16,7 @@ public interface TasksContract {
 
         void result(int requestCode, int resultCode);
 
-        void loadTaks(boolean forceUpdate);
+        void loadTasks(boolean forceUpdate);
 
         void addNewTask();
 
