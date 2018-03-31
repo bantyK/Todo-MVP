@@ -14,7 +14,7 @@ import com.example.vuclip.todo_mvp.data.Task;
 public abstract class ToDoDatabase extends RoomDatabase {
     private static ToDoDatabase INSTANCE;
 
-    public abstract TasksDao dao();
+    public abstract TasksDao taskDao();
 
     private static final Object sLock = new Object();
 

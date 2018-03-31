@@ -50,11 +50,11 @@ public class TasksRemoteDataSource implements TaskDataSource {
     @Override
     public void getTasks(@NonNull final LoadTasksCallback callback) {
         //Simulate network by delaying the execution
-        android.os.Handler handler = new android.os.Handler();
+        Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                callback.onTasksLoaded(Lists.<Task>newArrayList(TASK_SERVICE_DATA.values()));
+                callback.onTasksLoaded(Lists.newArrayList(TASK_SERVICE_DATA.values()));
             }
         }, SERVICE_LATENCY_IN_MILLIS);
     }

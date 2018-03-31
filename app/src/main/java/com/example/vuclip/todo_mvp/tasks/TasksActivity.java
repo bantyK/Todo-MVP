@@ -1,8 +1,10 @@
 package com.example.vuclip.todo_mvp.tasks;
 
 import android.content.Intent;
+import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -12,12 +14,14 @@ import android.view.MenuItem;
 
 import com.example.vuclip.todo_mvp.R;
 import com.example.vuclip.todo_mvp.statistics.StatisticsActivity;
+import com.example.vuclip.todo_mvp.util.Injection;
 
 public class TasksActivity extends AppCompatActivity {
 
     public static final String CURRENT_FILTERING_KEY = "CURRENT_FILTERING_KEY";
     private DrawerLayout drawerLayout;
     private TaskPresenter taskPresenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,9 +52,34 @@ public class TasksActivity extends AppCompatActivity {
                     .commit();
         }
 
+        taskPresenter = new TaskPresenter(
+                Injection.provideTaskRepository(getApplicationContext()), tasksFragment);
 
-        // TODO: 31/03/18 presenter creation after the data model is ready
+        //load previously saved state, if available
+        if (savedInstanceState != null) {
+            TasksFilterType currentFilter =
+                    (TasksFilterType) savedInstanceState.getSerializable(CURRENT_FILTERING_KEY);
+            taskPresenter.setFiltering(currentFilter);
+        }
 
+        taskPresenter.getTestTask();
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        outState.putSerializable(CURRENT_FILTERING_KEY, taskPresenter.getFiltering());
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                drawerLayout.openDrawer(GravityCompat.START);
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 
     private void setupDrawerContent(NavigationView navigationView) {
