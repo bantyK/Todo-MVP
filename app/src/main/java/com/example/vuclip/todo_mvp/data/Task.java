@@ -18,7 +18,7 @@ import java.util.UUID;
  */
 
 @Entity(tableName = "tasks")
-public class Task {
+public final class Task {
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "entryid")
@@ -97,6 +97,10 @@ public class Task {
 
     public boolean isActive() {
         return !mCompleted;
+    }
+
+    public boolean isCompleted() {
+        return mCompleted;
     }
 
     public boolean isEmpty(Object o) {
