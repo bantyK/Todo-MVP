@@ -3,4 +3,22 @@
     <string name="navigation_view_header_title">TO-DOs</string>
     <string name="list_title">T0-DO List</string>
     <string name="statistics_title">Statistics</string>
+    <string name="no_tasks_all">You have no TO-DOs!</string>
+    <string name="no_tasks_add">Add a TO-DO item +</string>
+    <string name="menu_filter">Filter</string>
+    <string name="menu_clear">Clear Completed</string>
+    <string name="refresh">Refresh</string>
+    <string name="nav_all">All</string>
+    <string name="nav_active">Active</string>
+    <string name="nav_completed">Completed</string>
+    <string name="no_tasks_active">You have no active TO-DOs!</string>
+    <string name="no_completed_todos">You have no completed TO-DOs</string>
+    <string name="todo_saved">TO-DO saved</string>
+    <string name="task_complete">Task marked complete</string>
+    <string name="task_active">Task marked active</string>
+    <string name="completed_task_cleared">Completed tasks cleared</string>
+    <string name="error_loading_tasks">Error while loading tasks</string>
+    <string name="active_todos">Active TO-DOs</string>
+    <string name="completed_todos">Completed TO-DOs</string>
+    <string name="all_todos">All TO-DOs</string>
 </resources>

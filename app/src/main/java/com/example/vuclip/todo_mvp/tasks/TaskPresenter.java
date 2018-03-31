@@ -11,6 +11,7 @@ import com.example.vuclip.todo_mvp.data.source.TaskRepository;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
@@ -24,9 +25,11 @@ class TaskPresenter implements TasksContract.Presenter {
     private final TasksContract.View mTaskView;
     private boolean mFirstLoad = true;
 
-    public TaskPresenter(TaskRepository taskRepository, TasksFragment tasksFragment) {
-        this.mTaskRepository = taskRepository;
-        mTaskView = tasksFragment;
+    public TaskPresenter(TaskRepository taskRepository, TasksContract.View tasksView) {
+        mTaskRepository = checkNotNull(taskRepository, "TaskRepository cannot be null");
+        mTaskView = checkNotNull(tasksView, "taskView cannot be null");
+
+        mTaskView.setPresenter(this);
     }
 
     @Override
