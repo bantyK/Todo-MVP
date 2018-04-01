@@ -18,4 +18,33 @@ public class AddEditTaskFragment extends Fragment implements AddEditTaskContract
         return fragment;
     }
 
+    @Override
+    public void showEmptyTaskError() {
+
+    }
+
+    @Override
+    public void showTaskList() {
+
+    }
+
+    @Override
+    public void setTitle(String title) {
+
+    }
+
+    @Override
+    public void setDescription(String description) {
+
+    }
+
+    @Override
+    public boolean isActive() {
+        return false;
+    }
+
+    @Override
+    public void setPresenter(AddEditTaskContract.Presenter presenter) {
+
+    }
 }
