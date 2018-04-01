@@ -11,14 +11,13 @@ import com.example.vuclip.todo_mvp.data.source.TaskRepository;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Created by Banty on 31/03/18.
  */
 class TaskPresenter implements TasksContract.Presenter {
-    private TasksFilterType mCurrentFiltering;
+    private TasksFilterType mCurrentFiltering = TasksFilterType.ALL_TASKS;
 
     private final TaskRepository mTaskRepository;
 
