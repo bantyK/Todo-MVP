@@ -182,7 +182,7 @@ public class TasksFragment extends Fragment implements TasksContract.View {
         mListAdapter.replaceData(tasks);
 
         mTaskView.setVisibility(View.VISIBLE);
-        mNoTaskAddView.setVisibility(View.GONE);
+        mNoTaskView.setVisibility(View.GONE);
     }
 
     @Override

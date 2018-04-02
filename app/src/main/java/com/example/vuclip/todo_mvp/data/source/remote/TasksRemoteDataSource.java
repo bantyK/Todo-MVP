@@ -20,7 +20,7 @@ public class TasksRemoteDataSource implements TaskDataSource {
 
     private static TasksRemoteDataSource INSTANCE;
 
-    public static final int SERVICE_LATENCY_IN_MILLIS = 5000;
+    public static final int SERVICE_LATENCY_IN_MILLIS = 1000;
 
     private final static Map<String, Task> TASK_SERVICE_DATA;
 
