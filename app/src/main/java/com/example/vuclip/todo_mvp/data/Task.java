@@ -103,7 +103,11 @@ public final class Task {
         return mCompleted;
     }
 
-    public boolean isEmpty(Object o) {
+    public boolean isEmpty() {
+        return Strings.isNullOrEmpty(mTitle) &&
+                Strings.isNullOrEmpty(mDescription);
+    }
+    public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Task task = (Task) o;
