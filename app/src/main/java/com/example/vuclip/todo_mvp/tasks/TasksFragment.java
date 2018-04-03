@@ -169,12 +169,19 @@ public class TasksFragment extends Fragment implements TasksContract.View {
     }
 
     @Override
-    public void setLoadingIndicator(boolean active) {
+    public void setLoadingIndicator(final boolean active) {
         if (getView() == null) {
             return;
         }
         final SwipeRefreshLayout srl =
                 getView().findViewById(R.id.refresh_layout);
+
+        srl.post(new Runnable() {
+            @Override
+            public void run() {
+                srl.setRefreshing(active);
+            }
+        });
     }
 
     @Override
