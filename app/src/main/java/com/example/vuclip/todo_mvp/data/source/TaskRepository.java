@@ -28,6 +28,7 @@ public class TaskRepository implements TaskDataSource {
 
     boolean mCacheIsDirty = false;
 
+    // TODO: 03/04/18 Use dagger to inject these dependencies
     private TaskRepository(@NonNull TaskDataSource mTaskRemoteDataSource,
                            @NonNull TaskDataSource mTaskLocalDataSource) {
         this.mTaskRemoteDataSource = mTaskRemoteDataSource;
